@@ -1,110 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import FashionItems from "./FashionItems";
 
-const Fashion = () => {
+const Fashion = (props) => {
+const itemsList = [
+    {
+      id: "Item 1",
+      title: "Jacket ",
+      description: "An amazing Jacket Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum sodales nunc, et convallis mauris. Vivamus erat erat, tempus sed libero ut, viverra commodo nunc. ",
+      url: "",
+    },
+    {
+      id: "Item 1",
+      title: "Tshirt",
+      description: "An amazing Tshirt Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vestibulum sodales nunc, et convallis mauris. Vivamus erat erat, tempus sed libero ut, viverra commodo nunc.  ",
+      url: "",
+    },
+    {
+      id: "Item 1",
+      title: "Jeans",
+      description: "An amazing Jeans Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum sodales nunc, et convallis mauris. Vivamus erat erat, tempus sed libero ut, viverra commodo nunc.  ",
+      url: "",
+    },
+  ];
+  const [items, setItems] = useState(itemsList);
   return (
     <>
       <div className="container">
         <h1 className="mx-2">Fashion</h1>
-        <div className="container my-5">
-          <h2>Mens</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Earum eveniet nisi itaque labore facere a illum vel officia
-                    asperiores culpa, odio veniam voluptatibus molestiae
-                    aspernatur unde iure eius aliquid sequi recusandae quisquam!
-                  </p>
-                </div>
-              </div>
+        <div className="row">
+          {items.map((element) => {
+            return (
+              <div className="col-md-4" key={element.id}>
+                <FashionItems
+                  title={element.title}
+                  description={element.description}
+                  imageUrl={element.url}
+                />
             </div>
-
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Impedit maiores iusto minima, iste repellat et consequatur!
-                    Deserunt, explicabo. Laborum animi reprehenderit cum,
-                    dolorem suscipit vel error a molestias, autem explicabo
-                    tempore molestiae!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Error, illum deserunt. Deleniti omnis aliquam nobis
-                    laboriosam voluptatibus id, veniam quod. Dolore ratione odit
-                    illo dolorum autem, nisi asperiores ea alias sunt sint.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container my-5">
-          <h2>Womens</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Earum eveniet nisi itaque labore facere a illum vel officia
-                    asperiores culpa, odio veniam voluptatibus molestiae
-                    aspernatur unde iure eius aliquid sequi recusandae quisquam!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Impedit maiores iusto minima, iste repellat et consequatur!
-                    Deserunt, explicabo. Laborum animi reprehenderit cum,
-                    dolorem suscipit vel error a molestias, autem explicabo
-                    tempore molestiae!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Error, illum deserunt. Deleniti omnis aliquam nobis
-                    laboriosam voluptatibus id, veniam quod. Dolore ratione odit
-                    illo dolorum autem, nisi asperiores ea alias sunt sint.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </>
